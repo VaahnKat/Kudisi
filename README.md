@@ -1,0 +1,2 @@
+# Kudisi
+Python project exercises
