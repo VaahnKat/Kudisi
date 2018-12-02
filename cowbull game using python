@@ -1,0 +1,92 @@
+#This is the computer word ,which we want to find
+import random
+open=('ABLE, AMIN,BEST,CALM,CARE,CUTE,DOPE,DUTY,EASY,FAIR,FAME,FINE,FLOW,GIFT, GIVE, GLAD, GLOW, GROW,HALO, HELP, HERO, HOLY, HOPE, HUGE,IDEA,JOKE, JUST, KIND,LIFE, LIKE, LIVE, LOVE, LUCK,MANY, MILD, MORE,NEAT, NICE,OPEN,PLAY,PURE,REAL, REST, RIPE,SAFE, SAVE, SEXY, SOUL, SWAG,TACT, TEAM, TIME, TRUE,VERY,WARM,WISE,YEAH, ZEAL, ZEST, ZING')
+c=open.split(',')
+va=random.choice(c)
+vb=va.lower()
+vc=vb.lstrip()
+v=vc.rstrip()
+
+#print(va,vb,vc,v)
+#creating an empty string
+print("""Welcome to playing CowBull
+        You have ten chances to guess the  right 4 digit word""")
+tries=1
+while tries <= 10:
+    em=""
+    bull=""
+    cow=""
+
+#converting string into list
+
+    bulld=list(bull)
+    cowd=list(cow)
+
+#getting the input from the user
+    print('Your Guessnumber',tries)
+    z=str(input("Type a 4 letter word :  "))
+    z=z.lower()
+    z=z.lstrip()
+    z=z.rstrip()
+
+#converting string into list
+
+    m=list(v)
+    n=list(z)
+    emls=list(em)
+
+
+    for c in v:
+        #print('the c is ',c)
+        co=z.count(c)
+        #print("the countis ",co)
+        if co != 0:
+        #cm =['9']
+            emls.append(c)
+
+
+    #print('the final list of matched letters is',emls)
+    emln=len(emls)
+#print('the length of the list emls',emln)
+
+    for g in emls:
+        gn=v.index(g)
+        zn=z.index(g)
+        #print ('gn is ',gn)
+        #print ('zn is ',zn)
+        if gn == zn:
+            bulld.append(g)
+            #print('bull g is',g)
+        else:
+            cowd.append(g)
+            #print('cow g is',g)
+    bln = len(bulld)
+    cln=len(cowd)
+    print(z,':',bln,'bull,',cln,'cow')
+    #print('there is ',cln,'cow')
+    #print( ' there is  ',bln, 'bull')
+
+    if bln != 4:
+        print ('try again with another 4 letter word')
+        print('======================================')
+        if tries >= 10:
+            print('you have exceeded the number of attempts')
+            print('Better luck next time')
+
+    else:
+        print("""
+        
+(  ____ \(  ___  )( (    /|(  ____ \(  ____ )(  ___  )\__   __/(  ____ \
+| (    \/| (   ) ||  \  ( || (    \/| (    )|| (   ) |   ) (   | (    \/
+| |      | |   | ||   \ | || |      | (____)|| (___) |   | |   | (_____ 
+| |      | |   | || (\ \) || | ____ |     __)|  ___  |   | |   (_____  )
+| |      | |   | || | \   || | \_  )| (\ (   | (   ) |   | |         ) |
+| (____/\| (___) || )  \  || (___) || ) \ \__| )   ( |   | |   /\____) |
+(_______/(_______)|/    )_)(_______)|/   \__/|/     \|   )_(   \_______)
+ 
+     """)
+        print('you have taken ',tries,'chance')
+        print('your point is ',10-tries)
+        if bln ==4:
+            break
+    tries=tries+1
